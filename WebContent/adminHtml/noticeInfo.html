@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid pach</title>
+    <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
+    <link type="text/css" rel="stylesheet" href="/src/styles/adminMain.css" />
+
+    <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/src/js/default.js"></script>
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!-- postcod api-->
+    <script type="text/javascript" src="/src/js/postcode.js"></script>
+    <style>
+        .boardContent .textarea2 {
+            width: 100%;
+        }
+
+        .boardContent .textarea2 textarea {
+            width: 80%;
+            height: 400px;
+            resize: none;
+            overflow-y: scroll;
+        }
+
+        textarea {
+            width: 100%;
+            resize: none;
+        }
+    </style>
+    <script>
+
+        function boardBodify() {
+            let f = document.getElementById("formtag1");
+
+            if (!f.notice_title.value) {
+                alert("제목을 입력하세요.");
+                return false;
+            }
+            if (!f.notice_content.value) {
+                alert("공지사항을 입력하세요.");
+                return false;
+            }
+
+            $("#formtag1").submit();
+        }
+        function boardDelet() {
+            if (confirm("정말 삭제하시겠습니까??") == true) {    //확인
+                console.log("삭제");
+
+
+
+
+            } else {   //취소
+                console.log("취소");
+                return false;
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- header-->
+        <header id="admheader">
+            <textarea name="" id=""></textarea>
+        </header>
+
+        <!-- hidden nav-->
+        <nav id="nav"></nav>
+        <form action="" method="post"></form>
+        <main>
+            <div class="mainWrap">
+                <section class="sec1">
+                    <!-- 컨탠츠 구역 -->
+                    <!-- ========================================================= -->
+                    <!-- tkdeks  -->
+
+                    <form action="" method="post" id="formtag1">
+
+
+                        <div class="boardHaeder">
+                            <div class="topTitle">
+                                <h1>공지내용</h1>
+                            </div>
+                            <div>
+                                <label for="btn1" class="btn" onclick="boardBodify();"> 게시판수정 </label>
+                                <input type=" button" class="hidden" id="btn1">
+                                <label for=""> / </label>
+                                <label for=" btn2" class="btn">게시판삭제 </label>
+                                <input type="button" class="hidden" id="btn2" onclick="boardDelet();">
+                            </div>
+                        </div>
+                        <div class="boardContent">
+                            <div><label for="">번호</label><input type="text" name="notice_no" value="1" disabled></div>
+                            <div><label for="">제목</label><input type="text" name="notice_title" value="내 머리속에 delete">
+                            </div>
+
+                            <div class="textarea2">
+                                <label for="">공지내용</label>
+                                <textarea name="gym_content" name="notice_content"></textarea>
+                            </div>
+                            <div class="imglist">
+                                <div>
+                                    <label for="">이미지</label>
+                                    <input type="file" name="gym_images">
+                                </div>
+
+                                <div class="imgslid">
+                                    <figure>
+                                        <span class="del_img" onclick="">X</span>
+                                        <img src="/src/assets/image/img1/rabbit-g374493707_640.jpg" alt="">
+                                    </figure>
+                                    <figure>
+                                        <span class="del_img" onclick="">X</span>
+                                        <img src="/src/assets/image/img1/rabbit-g374493707_640.jpg" alt="">
+                                    </figure>
+                                    <figure>
+                                        <span class="del_img" onclick="">X</span>
+                                        <img src="/src/assets/image/img1/rabbit-g374493707_640.jpg" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="">등록날짜</label><input type="text" value="2022-04-22" disabled>
+                            </div>
+                            <div>
+                                <label for="">조횟수</label><input type="text" value="22" disabled>
+                            </div>
+                        </div>
+
+
+                    </form>
+                    <!-- ========================================================= -->
+                </section>
+
+            </div>
+        </main>
+
+        <footer id="footer">
+
+        </footer>
+
+        <!-- side butten -->
+        <article id="sideBtn">
+            <div class="sideLinkWrap">
+                <label id="" for="">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+        </article>
+    </div>
+</body>
+
+</html>

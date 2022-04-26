@@ -76,6 +76,38 @@ public class BoardAllDAO {
 				if(conn != null) conn.close();
 			}
 		}
+		
+		public boolean notice_upload(BoardsDTO bo) throws NamingException, SQLException {
+			int result = 0;
+			// 연결
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				String sql = "UPDATE musclegather.notice_board "
+						+"SET " 
+						+"notice_title		= " + bo.getBoards_title()
+						+",notice_content	= " + bo.getBoards_content() 
+						+"WHERE notice_no	= " + bo.getBoards_no();
+				
+				conn = ConnectionPool.get();
+				pstmt = conn.prepareStatement(sql);
+				result = pstmt.executeUpdate();
+				
+				if(result == 1) {					
+					return true;
+				}else {
+					return false;					
+				}
+				
+			}finally {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}
+		}
+		
+		
 		public ArrayList<BoardsDTO> ask_board() throws NamingException, SQLException {
 			// 연결
 			Connection conn = null;

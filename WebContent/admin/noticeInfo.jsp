@@ -38,6 +38,37 @@ BoardsDTO bo = (new BoardAllDAO() ).notice(no);
             overflow-y: scroll;
         }
     </style>
+    
+    <script>
+
+        function boardBodify() {
+            let f = document.getElementById("formtag1");
+
+            if (!f.notice_title.value) {
+                alert("제목을 입력하세요.");
+                return false;
+            }
+            if (!f.notice_content.value) {
+                alert("공지사항을 입력하세요.");
+                return false;
+            }
+
+            $("#formtag1").submit();
+        }
+        function boardDelet() {
+            if (confirm("정말 삭제하시겠습니까??") == true) {    //확인
+                console.log("삭제");
+
+
+
+
+            } else {   //취소
+                console.log("취소");
+                return false;
+            }
+        }
+
+    </script>
 	
 </head>
 
@@ -56,7 +87,7 @@ BoardsDTO bo = (new BoardAllDAO() ).notice(no);
                 <section class="sec1">
                     <!-- 컨탠츠 구역 -->
                     <!-- ========================================================= -->
-                    <form action="" method="post" id="formtag1" enctype="multipart/form-data">
+                    <form action="noticeUpload.jsp" method="post" id="formtag1" enctype="multipart/form-data">
                     <div class="boardHaeder">
                         <div class="topTitle">
                             <h1>공지내용</h1>
@@ -65,7 +96,7 @@ BoardsDTO bo = (new BoardAllDAO() ).notice(no);
                             <label for="" class="btn"> 게시판수정 </label>
                             <input type="button" class="hidden" onclick="boardBodify()">
                             <label for=""> / </label>
-                            <label for="" class="btn">게시판삭제 </label>
+                            <label for="" class="btn"> 게시판삭제 </label>
                             <input type="button" class="hidden" onclick="boardDelet()">
                         </div>
                     </div>
@@ -98,8 +129,6 @@ BoardsDTO bo = (new BoardAllDAO() ).notice(no);
                             <label for="">조횟수</label><input type="text" value="<%=bo.getView_cnt() %>" disabled>
                         </div>
                     </div>
-
-
 </form>
                     <!-- ========================================================= -->
                 </section>

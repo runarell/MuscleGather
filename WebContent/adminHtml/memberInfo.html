@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid pach</title>
+    <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
+    <link type="text/css" rel="stylesheet" href="/src/styles/adminMain.css" />
+
+    <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/src/js/default.js"></script>
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!-- postcod api-->
+    <script type="text/javascript" src="/src/js/postcode.js"></script>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- header-->
+        <header id="admheader">
+
+        </header>
+
+        <!-- hidden nav-->
+        <nav id="nav"></nav>
+
+        <main>
+            <div class="mainWrap">
+                <section class="sec1">
+                    <!-- 컨탠츠 구역 -->
+                    <!-- ========================================================= -->
+                    <!-- tkdeks  -->
+                    <div class="boardHaeder">
+                        <div class="topTitle">
+                            <h1>회원정보</h1>
+                        </div>
+                        <div>
+                            <label for="" class="btn">회원정보변경 </label>
+                            <input type="submit" class="hidden" onclick="location.href='/upload.jsp'">
+
+                            <label for="" class="btn">회원탈퇴</label>
+                            <input type="button" class="hidden" onclick="location.href='/delet.jsp'">
+                        </div>
+                    </div>
+                    <div class="boardContent">
+                        <div><label for="">회원번호</label><input type="text" disabled value="1"></div>
+                        <div><label for="">회원이름</label><input type="text" name="user_name" placeholder="이름"></div>
+                        <div><label for="">암호</label><input type="password" name="user_pw1" placeholder="암호"></div>
+                        <div><label for="">암호확인</label><input type="password" name="user_pw2" placeholder="암호"></div>
+                        <div><label for="">생년월일</label><input type="text" name="user_brith" placeholder="생년월일"
+                                value="220422"></div>
+
+                        <div class="zipcode">
+                            <label for="">우편번호</label>
+                            <input type="text" name="user_zipcode" id="zipcode" placeholder="우편번호" disabled>
+                            <input type="button" value="주소검색" onclick="kakao_addr()">
+                        </div>
+                        <div>
+                            <label for="">주소</label>
+                            <input type="text" name="user_addr" id="address1" placeholder="주소" disabled>
+                        </div>
+                        <div><label for="">상세주소</label><input type="text" name="user_addrdetail"></div>
+
+                        <div class="gender">
+                            <input type="radio" id="gender1" class="hidden" name="user_gender" value="">
+                            <label for="gender1" class="btn">남자</label>
+                            <input type="radio" id="gender2" class="hidden" name="user_gender" value="">
+                            <label for="gender2" class="btn">여자</label>
+                        </div>
+                        <div>
+                            <label for="">이메일</label>
+                            <input type="text" name="user_email">
+                        </div>
+                        <div>
+                            <label for="">휴대전화</label>
+                            <input type="text" name="user_phone">
+                        </div>
+                        <div class="checbox">
+                            <input type="checkbox" id="btn1" class="hidden" name="user_admin">
+                            <label for="btn1" class="btn">관리자 여부</label>
+
+                            <input type="checkbox" id="btn2" class="hidden" name="user_kakao">
+                            <label for="btn2" class="btn">kakao 여부</label>
+
+                            <input type="checkbox" id="btn3" class="hidden" name="user_auth">
+                            <label for="btn3" class="btn">인증여부</label>
+
+                            <input type="checkbox" id="btn4" class="hidden" name="user_starus">
+                            <label for="btn4" class="btn">탈퇴상태</label>
+                        </div>
+                        <!---->
+
+                    </div>
+
+                    <div class="boardHaeder">
+                        <div class="topTitle">
+                            <h1>트레이너</h1>
+                        </div>
+                    </div>
+                    <div class="boardContent">
+                        <div><label for="">트레이너번호</label><input type="text" disabled value="1"></div>
+                        <div><label for="">트레이너 제목</label><input type="text" name="trainer_name" placeholder="이름"></div>
+                        <div class="area">
+                            <label for="">희망지역</label>
+                            <input type="text" name="trainer_addr" id="address2" placeholder="주소" disabled>
+                            <input type="button" value="주소검색" onclick="kakao_addr2()">
+                        </div>
+
+                        <div class="checbox2">
+                            <input type="checkbox" id="btn5" class="hidden" name="trainer_secret">
+                            <label for="btn5" class="btn">공개여부</label>
+                        </div>
+
+                        <div><label for="">등록날짜</label><input type="text" value="" disabled>
+                        </div>
+
+                        <div class="textarea">
+                            <label for="">트레이너 내용</label>
+                            <textarea name="trainer_content" id=""></textarea>
+                        </div>
+                        <div class="imglist">
+                            <div>
+                                <label for="">이미지</label>
+                                <input type="file" name="trainer_images">
+                            </div>
+
+                            <div class="imgslid">
+                                <figure>
+                                    <span class="del_img" onclick="">X</span>
+                                    <img src="/src/assets/image/img1/rabbit-g374493707_640.jpg" alt="">
+                                </figure>
+                                <figure>
+                                    <span class="del_img" onclick="">X</span>
+                                    <img src="/src/assets/image/img1/rabbit-g374493707_640.jpg" alt="">
+                                </figure>
+                                <figure>
+                                    <span class="del_img" onclick="">X</span>
+                                    <img src="/src/assets/image/img1/rabbit-g374493707_640.jpg" alt="">
+                                </figure>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="boardHaeder">
+                        <div class="topTitle">
+                            <h1>헬스장</h1>
+                        </div>
+                    </div>
+                    <div class="boardContent">
+                        <div><label for="">헬스장 번호</label><input type="text" disabled value="1"></div>
+                        <div><label for="">헬스장 이름</label><input type="text" name="gym_name" placeholder="이름"></div>
+
+                        <div class="textarea">
+                            <label for="">헬스장 내용</label>
+                            <textarea name="gym_content" id=""></textarea>
+                        </div>
+
+                        <div class="area">
+                            <label for="">희망지역</label>
+                            <input type="text" name="gym_addr" id="address2" placeholder="주소" disabled>
+                            <input type="button" value="주소검색" onclick="kakao_addr2()">
+                        </div>
+
+                        <div><label for="">급여</label><input type="text" name="gym_salary" placeholder="이름"></div>
+
+                        <div class="checbox2">
+                            <input type="checkbox" id="btn6" class="hidden" name="gym_secret">
+                            <label for="btn6" class="btn">공개</label>
+                        </div>
+
+                        <div>
+                            <label for="">등록날짜</label><input type="text" value="" disabled>
+                        </div>
+
+                        <div class="imglist">
+                            <div>
+                                <label for="">이미지</label>
+                                <input type="file" name="gym_images">
+                            </div>
+
+                            <div class="imgslid">
+                                <figure>
+                                    <span class="del_img" onclick="">X</span>
+                                    <img src="/src/assets/image/img1/rabbit-g374493707_640.jpg" alt="">
+                                </figure>
+                                <figure>
+                                    <span class="del_img" onclick="">X</span>
+                                    <img src="/src/assets/image/img1/rabbit-g374493707_640.jpg" alt="">
+                                </figure>
+                                <figure>
+                                    <span class="del_img" onclick="">X</span>
+                                    <img src="/src/assets/image/img1/rabbit-g374493707_640.jpg" alt="">
+                                </figure>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ========================================================= -->
+                </section>
+
+            </div>
+        </main>
+
+        <footer id="footer">
+
+        </footer>
+
+        <!-- side butten -->
+        <article id="sideBtn">
+            <div class="sideLinkWrap">
+                <label id="" for="">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+        </article>
+    </div>
+</body </html>

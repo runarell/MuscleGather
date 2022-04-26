@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid pach</title>
+    <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
+    <link type="text/css" rel="stylesheet" href="/src/styles/adminMain.css" />
+
+    <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/src/js/default.js"></script>
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!-- postcod api-->
+    <script type="text/javascript" src="/src/js/postcode.js"></script>
+    <style>
+        .boardContent .textarea2 {
+            width: 100%;
+        }
+
+        .boardContent .textarea2 textarea {
+            width: 80%;
+            height: 400px;
+            resize: none;
+            overflow-y: scroll;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- header-->
+        <header id="admheader">
+
+        </header>
+
+        <!-- hidden nav-->
+        <nav id="nav"></nav>
+
+        <main>
+            <div class="mainWrap">
+                <section class="sec1">
+                    <!-- 컨탠츠 구역 -->
+                    <!-- ========================================================= -->
+                    <!-- tkdeks  -->
+                    <div class="boardHaeder">
+                        <div class="topTitle">
+                            <h1>자주묻는 질문</h1>
+                        </div>
+                        <div>
+                            <label for="" class="btn">게시판수정 </label>
+                            <input type="submit" class="hidden" onclick="location.href='/upload.jsp'">
+                            <label for=""> / </label>
+                            <label for="" class="btn">게시판삭제 </label>
+                            <input type="submit" class="hidden" onclick="location.href='/upload.jsp'">
+                        </div>
+                    </div>
+                    <div class="boardContent">
+                        <div><label for="">번호</label><input type="text" name="notice_no" value="1" disabled></div>
+                        <div><label for="">제목</label><input type="text" name="notice_title" value="회원가입 방법"></div>
+
+                        <div class="textarea2">
+                            <label for="">공지내용</label>
+                            <textarea name="gym_content" name="notice_content">만약 가입을 원하신다면 회원가입 페이지로 가세요.</textarea>
+                        </div>
+                    </div>
+
+                    <!-- ========================================================= -->
+                </section>
+
+            </div>
+        </main>
+
+        <footer id="footer">
+
+        </footer>
+
+        <!-- side butten -->
+        <article id="sideBtn">
+            <div class="sideLinkWrap">
+                <label id="" for="">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+        </article>
+    </div>
+</body </html>

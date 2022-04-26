@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>massage</title>
+    <link type="text/css" rel="stylesheet" href="/src/styles/default.css" />
+    <link type="text/css" rel="stylesheet" href="/src/styles/adminMain.css" />
+
+    <script type="text/javascript" src="/src/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/src/js/clickEvent.js"></script>
+    <script>
+        // 페이지 링크
+        $(document).ready(function () {
+            $("#header").load("/html/pieceHeader.html");
+            $("#nav").load("/html/pieceNav.html");
+            // $("#sideBar").load("html/pieceSidebar.html");
+            // $("#sideBtn").load("pieceSidelink.html");
+            $("#footer").load("/html/pieceFooter.html");
+        });
+    </script>
+    <script>
+        $(window).scroll(function () {
+            if ($(this).scrollTop() == 0)
+                $('#header').css('opacity', '1');
+            else
+                $('#header').css('opacity', '.4');
+        });
+    </script>
+    <style>
+        .sec1 {}
+
+        .massageCell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .massageCell>div {
+            width: 800px;
+        }
+
+        .chattingList {
+            background: #ffffff;
+            overflow-y: scroll;
+            background: #000000;
+            border: 1px solid #ffffff;
+            height: 80vh;
+        }
+
+        .charringIner {
+            border: 1px solid #ffffff;
+            height: 10vh;
+        }
+
+        .chattingList>div {
+            padding: 10px;
+            display: flex;
+        }
+
+        .chattingList .imgBox {
+            width: 65px;
+            margin-right: 5px;
+        }
+
+        .chattingList .nameBox {
+            padding: 0 5px;
+            margin: 2px 0;
+        }
+
+        .chattingList>.leftText>.contentCell {
+            max-width: 65%;
+        }
+
+        .chattingList>div>.timeBox {
+            margin: 0 3px;
+            align-self: flex-end;
+        }
+
+        .chattingList>div.rightText {
+            text-align: right;
+            justify-content: flex-end;
+        }
+
+        .chattingList>div .textBox {
+            border: 1px solid #666666;
+            border-radius: 10px;
+            box-shadow: 2px 3px #ffffff40;
+            padding: 10px;
+        }
+
+        .charringIner form {
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .charringIner form div:nth-child(1) {
+            width: 80%;
+        }
+
+        .charringIner form textarea {
+            width: 100%;
+            height: 100%;
+            resize: none;
+        }
+
+        .charringIner form div:nth-child(2) {
+            width: 20%;
+        }
+
+        .charringIner form input {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- header-->
+        <header id="header"></header>
+
+        <!-- hidden nav-->
+        <nav id="nav"></nav>
+
+        <!-- hidden sideBar-->
+        <aside id="sideBarA" class="">
+            <div class="sideWrap">sideA</div>
+        </aside>
+
+        <aside id="sideBarB" class="">
+            <div class="sideWrap">sideB</div>
+        </aside>
+
+        <main>
+            <div class="mainWrap">
+                <section class="sec1">
+                    <div class="massageCell">
+
+                        <div class="chattingList">
+                            <div class="leftText">
+                                <div class="imgBox"><img src="/src/assets/image/icon/facebook.png" alt=""></div>
+                                <div class="contentCell">
+                                    <div class="nameBox">이재원</div>
+                                    <div class="textBox">
+                                        <span>안녕하세요</span>
+                                    </div>
+                                </div>
+                                <div class="timeBox"><span>06:33</span></div>
+                            </div>
+
+                            <div class="rightText">
+                                <div class="timeBox"><span>06:33</span></div>
+                                <div class="textBox"><span>안녕하세요</span></div>
+                            </div>
+
+                            <div class="rightText">
+                                <div class="timeBox"><span>06:33</span></div>
+                                <div class="textBox"><span>이거 생각보다 재미가 있어서 걔속 만글고 있는데 수업은 어떨티비 하악!</span></div>
+                            </div>
+
+                            <div class="leftText">
+                                <div class="imgBox"><img src="/src/assets/image/icon/facebook.png" alt=""></div>
+                                <div>
+                                    <div class="nameBox">이재원</div>
+                                    <div class="textBox"><span>그래서 어쩔수없이 계속해서 하게되는 재미있는 채팅 css 꾸미기</span></div>
+                                </div>
+                                <div class="timeBox"><span>06:33</span></div>
+                            </div>
+                        </div>
+                        <div class="charringIner">
+                            <form action="" method="post">
+                                <div><textarea name="" id=""></textarea></div>
+                                <div><input type="submit" value="전송"></div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer id="footer">
+        </footer>
+
+        <!-- side butten -->
+        <article id="sideBtn">
+            <div class="sideLinkWrap">
+                <label id="" for="">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+        </article>
+    </div>
+</body>
+
+</html>
