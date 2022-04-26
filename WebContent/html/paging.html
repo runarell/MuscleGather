@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid pach</title>
+    <link type="text/css" rel="stylesheet" href="../css/default.css" />
+    <link type="text/css" rel="stylesheet" href="../scc/main.css" />
+
+    <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#buttonSubmit").on('click', function () { // 제출 버튼 이벤트 지정
+                $.ajax({
+                    url: "./result.jsp", // 목적지
+                    type: "POST", // HTTP Method
+                    data: $("#theForm").serialize(), // 전송 데이터
+                    dataType: 'json', // 전송 데이터 형식
+                    success: function (res) { // 성공 시 실행
+
+                        alert("성공");
+                        $("#result_name").html(res.name);
+                        $("#result_ph_number").html(res.ph_number);
+                        $("#result_address").html(res.address);
+                    },
+                    error: function (er) { //실패 시 실행
+                        alert("실패 원인 : " + er);
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+
+        $(document).ready(function () {
+            let content = $(".content>div");    // 컨탠츠 박스
+            let pagingLen = 10;
+            let lastPage = 20;                      //  마지막
+
+            // 버튼 초기화
+            $(".pagingBox").append("<div data-page='" + 1 + "' class='hidden'> << </div > ");
+            $(".pagingBox").append("<div data-page='" + 1 + "' class='hidden'> < </div > ");
+            for (let i = 1; i <= pagingLen; i++) {
+                $(".pagingBox").append("<div data-page='" + i + "'>" + i + "</div>");
+            }
+            $(".pagingBox").append("<div data-page='" + 3 + "'> > </div > ");
+            $(".pagingBox").append("<div data-page='" + lastPage + "' > >> </div > ");
+            // on class 초기화
+            $(".pagingBox>div").eq(2).addClass("on");
+
+
+
+            $(".pagingBox > div").click(function () {
+                let page = $(this).attr("data-page");
+                pagingBtn(page);
+
+                // 페이징 실행 위치
+
+
+            });
+
+            // 페이징 번호 조작
+            function pagingBtn(page) {
+                let pageno = parseInt(page);           // 최대 페이지 숫자
+                let start = pageno - (pagingLen / 2);  // 시작버튼 번호
+                if (start < 1) start = 1; // 시작은 1부터( 0,음수 안됨)
+
+                let end = start + pagingLen; // 마지막 숫자
+                if (end > lastPage) {
+                    end = lastPage;  // 마지막은 lastPage 이상일 수 없다.
+                    start = end - 9;
+                }
+
+                let pageList = $(".pagingBox>div");
+                pageList.removeClass("on hidden");
+
+
+                // 페이지 왼쪽 이동
+                if (pageno == 1) {
+                    pageList.eq(0).addClass("hidden");
+                    pageList.eq(1).addClass("hidden");
+                }
+                for (let i = 2; i < 12; i++) {
+                    let no = i + start - 2;
+
+                    pageList.eq(i).attr("data-page", no).html(no);
+
+                    if (no == pageno) {// 선택 페이지 이면
+                        pageList.eq(1).attr("data-page", no - 1);
+                        pageList.eq(i).addClass("on");
+                        pageList.eq(pagingLen + 2).attr("data-page", no + 1)
+                    }
+                }
+                // 페이지 오른쪽 이동
+                if (end == lastPage) {
+                    pageList.eq(pagingLen + 2).addClass("hidden");
+                    pageList.eq(pagingLen + 3).addClass("hidden");
+                }
+            }
+        });
+    </script>
+
+    <style>
+        .boardCell {
+            margin: auto;
+            width: 800px;
+        }
+
+        .content {
+            border: .5px solid #f3a950;
+            margin: auto;
+            height: 400px;
+        }
+
+        .content>div {
+            text-align: center;
+            font-size: 5rem;
+            line-height: 400px;
+        }
+
+
+        .pagingBox {
+            margin: 10px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            width: 800px;
+        }
+
+        .pagingBox>div {
+            border: 1px solid #f3a950;
+            margin: 0 3px;
+            padding: 2px 4px;
+            cursor: pointer;
+        }
+
+        .pagingBox>div.on {
+            border: 1px solid #ffffff;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boardCell">
+        <div class="content">
+            <div>1</div>
+        </div>
+        <div class="pagingBox">
+        </div>
+    </div>
+</body>
+
+</html>
