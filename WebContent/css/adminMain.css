@@ -1,0 +1,468 @@
+
+
+.sec1 .geller1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+
+.sec1 .geller1>figure {
+    padding: 10px;
+    width: calc(100%/6);
+    height: 250px;
+    text-align: center;
+}
+
+.sec1 figure>div:nth-child(1) {
+    height: 70%;
+}
+
+.sec1 figure>div:nth-child(2) {
+    height: 10%;
+}
+
+.sec1 figure>div:nth-child(3) {
+    height: 10%;
+}
+
+.sec1 figure>div:nth-child(4) {
+    height: 10%;
+}
+
+.sec1 figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.boardCell{
+    padding: 10px 0;
+}
+
+.miniboard {
+    box-shadow: 2px 3px #f3a950;
+    border-radius: 10px;
+    padding: 10px;
+    border-top: 1px solid #f3a950;
+    border-left: 1px solid #f3a950;
+    min-height: 50vh;
+    grid-column-end: span 6;
+}
+
+.board_titel {
+    margin-bottom: 5px;
+}
+
+.board {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    margin: 10px 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 10px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    text-align:center;
+}
+
+.board.titel {
+    border-top: 1px solid #ffffff50;
+    border-bottom: 1px solid #ffffff50;
+    font-size: 1.4rem;
+}
+
+.board.text {
+    margin: 3px 0px;
+    border-top: 1px solid #ffffff80;
+    border-bottom: 1px solid #ffffff80;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.board.text:hover {
+    background: #161b21;
+    cursor: pointer;
+}
+/* bd1  */
+.bd1>.board>div:nth-child(1) {
+    width: 10%;
+}
+
+.bd1>.board>div:nth-child(2) {
+    width: 55%;
+}
+
+.bd1>.board>div:nth-child(3) {
+    width: 10%;
+}
+
+.bd1>.board>div:nth-child(4) {
+    width: 20%;
+}
+/* bd2  */
+.bd2>.board>div:nth-child(1) {
+    width: 10%;
+}
+.bd2>.board>div:nth-child(2) {
+    width: 70%;
+}
+
+.bd2>.board>div:nth-child(3) {
+    width: 20%;
+}
+
+/* bd3 */
+.bd3>.board>div:nth-child(1) {
+    width: 10%;
+}
+.bd3>.board>div:nth-child(2) {
+    width: 20%;
+}
+.bd3>.board>div:nth-child(3) {
+    width: 20%;
+}
+.bd3>.board>div:nth-child(4) {
+    width: 10%;
+}
+.bd3>.board>div:nth-child(5) {
+    width: 10%;
+}
+.bd3>.board>div:nth-child(6) {
+    width: 20%;
+}
+
+/* bd4 */
+.bd4>.board>div:nth-child(1) {
+    width: 10%;
+}
+.bd4>.board>div:nth-child(2) {
+    width: 10%;
+}
+.bd4>.board>div:nth-child(3) {
+    width: 20%;
+}
+.bd4>.board>div:nth-child(4) {
+    width: 10%;
+}
+.bd4>.board>div:nth-child(5) {
+    width: 10%;
+}
+
+
+.mainboard {
+    border-radius: 10px;
+    padding: 10px;
+    min-height: 50vh;
+    grid-column-end: span 6;
+}
+
+.formCell {
+    display: flex;
+    padding: 10px 0;
+    border-top: 1px solid #f3a950;
+    border-bottom: 1px solid #f3a950;
+}
+
+.formCell>div {
+    margin: 0 10px;
+    width: 125px;
+}
+
+.table {
+    /* border: 1px solid #f3a950; */
+}
+/* 페이징 */
+.pagingBox {
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.pagingBox>div {
+    border: 1px solid #f3a950;
+    margin: 0 3px;
+    padding: 2px 4px;
+    cursor: pointer;
+}
+
+.pagingBox>div.on {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+/* ====================================================== */
+.sec1 {
+    padding: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="button"],
+input[type="submit"],
+textarea {
+    background: #666666;
+    color: #f3a950;
+}
+
+input[type="text"] {
+    padding: 0 10px;
+}
+
+textarea {
+    padding: 10px;
+}
+
+textarea::placeholder,
+input::placeholder {
+    color: #161b21;
+}
+
+.boardHaeder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boardHaeder>div:nth-child(1) {
+    width: 125px;
+}
+
+.boardHaeder>div:nth-child(2) {
+    display: flex;
+}
+
+.boardContent label.btn {
+    display: block;
+    border: 1px solid #f3a950;
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
+label.btn:hover {
+    background: #161b21;
+    color: #e5e5e5;
+}
+
+/* ============== */
+.boardContent {
+    padding: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.boardContent input {
+    box-shadow: none;
+    border: none;
+}
+
+.boardContent input:disabled {
+    background: #161b21;
+    color: #f3a950;
+}
+
+.boardContent>div {
+    display: flex;
+    justify-content: space-between;
+    width: 48%;
+    padding: 5px 10px;
+    border-top: 1px solid #f3a950;
+    border-bottom: 1px solid #f3a950;
+    margin: 5px 0;
+}
+
+.boardContent>div>label {
+    line-height: 34px;
+    width: 30%;
+}
+
+.boardContent>div>input {
+    width: 70%;
+}
+
+.boardContent .gender {
+    justify-content: flex-start;
+    padding: 0;
+    border: 0px;
+}
+
+.gender>label {
+    width: 50%;
+    text-align: center;
+}
+
+.gender>input[type="radio"]:checked+label {
+    background: #f3a950;
+    color: #161b21;
+}
+
+
+.boardContent>div.zipcode {}
+
+.boardContent>div.zipcode>input {
+    width: 35%;
+}
+
+.boardContent>div.checbox {
+    width: 100%;
+    text-align: center;
+}
+
+.boardContent>div.checbox2 {
+    width: 48%;
+    text-align: center;
+}
+
+.boardContent>div.checbox2>input {
+    width: 125px;
+}
+
+input[type="checkbox"]:checked+label {
+    background: #f3a950;
+    color: #161b21;
+}
+
+.boardContent>div.area>input {
+    width: 35%;
+}
+
+.boardContent>div.textarea {
+    width: 100%;
+}
+
+.boardContent>div.textarea>textarea {
+    width: 80%;
+    height: 100px;
+    resize: none;
+    overflow-y: scroll;
+}
+
+.boardContent>.imglist {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.imgslid {
+    display: flex;
+}
+
+.imgslid figure {
+    position: relative;
+}
+
+span.del_img {
+    cursor: pointer;
+    position: absolute;
+    width: 5%;
+    right: 0;
+    top: 0;
+    border: 1px solid #000000;
+    color: #000000;
+    text-align: center;
+}
+
+span.del_img:hover {
+    background: #161b21;
+    color: #f3a950;
+}
+
+
+.boardContent .textarea2 {
+    width: 100%;
+}
+
+.boardContent .textarea2 textarea {
+    width: 80%;
+    height: 200px;
+    resize: none;
+    overflow-y: scroll;
+}
+/* ====================================================== */
+
+
+
+/* ADMIN======================= */
+
+/* ======================================= */
+/* 크기별 조정*/
+/*=====================================================*/
+/*
+##Device = Desktops
+##Screen = 1281px to higher resolution desktops
+##Device = 데스크탑
+##Screen = 1281px 이상 해상도 데스크탑
+*/
+
+@media (min-width: 1281px) {
+
+}
+
+/*
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+##Device = 랩탑, 데스크탑
+##Screen = 1025px에서 1280px 사이
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+}
+
+@media (max-width: 1280px) {
+
+}
+
+/*
+##Device = Tablets, Ipads (portrait),
+##Screen = B/w 768px to 1024px
+##Device = 태블릿, 아이패드(세로),
+##Screen = 768px에서 1024px 사이
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+.miniboard {
+    grid-column: 2 / 12;
+} 
+}
+
+@media (max-width: 1024px) {
+}
+
+/*
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+##Device = 태블릿, 아이패드(가로)
+##Screen = 768px에서 1024px 사이
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+}
+
+/*
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+##Device = 저해상도 태블릿, 모바일(가로)
+##Screen = 481px에서 767px 사이
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .miniboard {
+      grid-column-end: span 12;
+}
+}
+
+/*
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+##Device = 대부분의 스마트폰 모바일 기기(세로)
+##Screen = 320px에서 479px 사이
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .miniboard {
+    grid-column-end: span 12;
+  } 
+}

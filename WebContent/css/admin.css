@@ -1,0 +1,183 @@
+.idxMain{
+    margin: 0;
+}
+
+section.indexSection {
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    display: flex; 
+    justify-content: space-between;
+    flex-direction: column;
+    /* background: url("/src/assets/image/bg/bg01.jpg") no-repeat center center; */
+    background-size: cover;
+    border: none;
+}
+.indexSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logofont {
+    padding: 20px 0;
+}
+
+.fromCell{
+    padding: 0 20px;
+}
+
+.btnList {
+    /* background: #e5e5e5 */
+}
+
+.btnList>div {
+    margin: 10px 5px;
+    background: #161b21;
+    color: #f3a950;
+    padding: 10px 0;
+    width: 120px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    transition: .2s ease-in;
+}
+
+.btnList>div:hover {
+    background: #f3a950;
+    color: #161b21;
+    width: 140px;
+    font-size: 2rem;
+}
+
+.btnList
+
+.btnList input[type="button"] {
+    display: none;
+}
+
+.logofont {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
+}
+
+.fromCell {
+    width: 400px;
+}
+
+.fromCell>form>div {
+    margin: 10px 0;
+}
+
+.fromCell input {
+    background: #161b21;
+    border: .5px solid #f3a950;
+    padding: 0 10px;
+    color: #e5e5e5;
+}
+
+.fromCell input[type="submit"] {
+    color: #ffffff;
+}
+
+.foottext{
+    position: relative;
+}
+.foottext>div{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+
+
+/* ======================================= */
+/* 크기별 조정*/
+/*=====================================================*/
+/*
+##Device = Desktops
+##Screen = 1281px to higher resolution desktops
+##Device = 데스크탑
+##Screen = 1281px 이상 해상도 데스크탑
+*/
+
+@media (min-width: 1281px) {
+
+  }
+  
+  /*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+  ##Device = 랩탑, 데스크탑
+  ##Screen = 1025px에서 1280px 사이
+  */
+  
+  @media (min-width: 1025px) and (max-width: 1280px) {
+
+  }
+  
+  @media (max-width: 1280px) {
+    
+  }
+  
+  /*
+  ##Device = Tablets, Ipads (portrait),
+  ##Screen = B/w 768px to 1024px
+  ##Device = 태블릿, 아이패드(세로),
+  ##Screen = 768px에서 1024px 사이
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+  
+  }
+  
+  @media (max-width: 1024px) {
+    .fromCell {
+        width: 70%;
+    } 
+  }
+  
+  /*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+  ##Device = 태블릿, 아이패드(가로)
+  ##Screen = 768px에서 1024px 사이
+  */
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  }
+  
+  /*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+  ##Device = 저해상도 태블릿, 모바일(가로)
+  ##Screen = 481px에서 767px 사이
+  */
+  
+  @media (min-width: 481px) and (max-width: 767px) {
+}
+    @media (max-width: 767px) {
+        .fromCell {
+            width: 100%;
+        } 
+
+    }
+    
+
+  /*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+  ##Device = 대부분의 스마트폰 모바일 기기(세로)
+  ##Screen = 320px에서 479px 사이
+  */
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+
+  }
+
+  @media (max-width: 480px) {
+    .fromCell {
+        width: 100%;
+    } 
+
+}
