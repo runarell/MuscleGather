@@ -9,7 +9,7 @@
 String outLeng = request.getParameter("outLeng");
 String pageNum = request.getParameter("startNum");
 
-ArrayList<BoardsDTO> notice = (new BoardAllDAO()).noticeList(outLeng, pageNum);
+ArrayList<BoardsDTO> notice = (new BoardAllDAO()).askList(outLeng, pageNum);
 
 %>   
     

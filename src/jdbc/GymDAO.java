@@ -12,7 +12,7 @@ import util.ConnectionPool;
 
 public class GymDAO {
 		//	핼스장 회원 리스트
-		public ArrayList<GymDTO> GymList(String no) throws NamingException, SQLException {
+		public ArrayList<GymDTO> GymList(String listNum, String stratNum) throws NamingException, SQLException {
 	      // 연결
 	      Connection conn = null;
 	      PreparedStatement pstmt = null;
@@ -23,8 +23,8 @@ public class GymDAO {
 	         			+ "from user U " 
 	         			+ "INNER JOIN gym G " 
 	         			+ "ON U.user_no = G.user_no " 
-	         			+ "order BY U.user_no DESC ";
-	         if(!no.equals("0")) sql += "LIMIT "+no;
+	         			+ "order BY U.user_no DESC "
+	         			+ "LIMIT "+stratNum+", "+listNum;
 	         
 	         conn = ConnectionPool.get();
 	         pstmt = conn.prepareStatement(sql);

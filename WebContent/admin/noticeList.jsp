@@ -1,17 +1,12 @@
-<%@page import="java.util.ArrayList"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="jdbc.*"%>
-
-<% request.setCharacterEncoding("UTF-8"); %>    
- 
-<%
-	ArrayList<BoardsDTO> notice = (new BoardAllDAO()).noticeList("0");
-%>
+<%request.setCharacterEncoding("UTF-8");%>    
 <!DOCTYPE html>
 <html lang="kr">
 
-<head> 
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,95 +16,47 @@
 
     <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../js/default.js"></script>
-    <style>
+	
+	<jsp:include page="../js/pagingJs.jsp" flush="false">
+          <jsp:param name="pageNo" value="1" />
+    </jsp:include>
 
-    </style>
+	
 </head>
 
 <body>
-    <div class="wrap">
-        <!-- header-->
-        <header id="admheader">
+    <form id="formtag1">
+        
+        <section class="sec1">
+	         <!-- 컨탠츠 구역 -->
+	         <!-- ========================================================= -->
+	         <!-- 옵션 선택부  -->
+	         <div class="option">
+	             <form>
+	                 <div class="formCell">
+	                     <div>
+	                     	<label></label>
+	                        <select  id="outLeng" name="outLeng">
+	                        	<option value="10" selected>10</option>
+	                        	<option value="50">20</option>
+	                        </select>
+       					 <input type="hidden" id="startNum" name="startNum" value="0">
+	                      
+	                     </div>
+	                 </div>
+	             </form>
+	         </div>
+	         <!-- 페이지 컨텐츠 -->
+	         <div class="mainboard bd3"  id="contents">
+	             
+	         </div>
+	         <!-- 페이징 버튼 -->
+	         <div class="pagingBox">
 
-        </header>
+	         </div>
+	         <!-- ========================================================= -->
+	     </section>
+    </form>
+</body>
 
-        <!-- hidden nav-->
-        <nav id="nav"></nav>
-
-        <main>
-            <div class="mainWrap">
-                <section class="sec1">
-                    <!-- 컨탠츠 구역 -->
-                    <!-- ========================================================= -->
-                    <!-- tkdeks  -->
-                    <div class="option">
-                        <form action="" method="">
-                            <div class="formCell">
-                                <div>
-                                    <select>
-                                        <option>리스트출력</option>
-                                        <option value="10">10</option>
-                                        <option value="50">50</option>
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <input type="text" class="" placeholder="검색">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="mainboard bd3">
-                        <div class="board_titel">
-                            <a href="">
-                                <h3>회원정보</h3>
-                            </a>
-                        </div>
-
-                        <div class="board titel">
-                            <div>번호</div>
-                            <div>제목</div>
-                            <div>조횟수</div>
-                            <div>날짜</div>
-                        </div>
-
-                        <% for(BoardsDTO bo : notice){ %>
-                        <div class="board text" onclick="location.href='noticeInfo.jsp?no=<%=bo.getBoards_no() %>'">
-                            <div><%=bo.getBoards_no() %></div>
-                            <div><%=bo.getBoards_title() %></div>
-                            <div><%=bo.getView_cnt() %></div>
-                            <div><%=bo.getBoards_regdate() %></div>
-                        </div>                            
-						<%}%>
-                        
-                    </div>
-                    <div class="pagingBox">
-                        <div data-page="1">1</div>
-                        <div data-page="2">2</div>
-                        <div data-page="3">3</div>
-                        <div data-page="4">4</div>
-                        <div data-page="5">5</div>
-                    </div>
-                    <!-- ========================================================= -->
-                </section>
-
-            </div>
-        </main>
-
-        <footer id="footer">
-
-        </footer>
-
-        <!-- side butten -->
-        <article id="sideBtn">
-            <div class="sideLinkWrap">
-                <label id="" for="">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-            </div>
-        </article>
-    </div>
-</body> </html>
+</html>

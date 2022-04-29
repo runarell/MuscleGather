@@ -7,14 +7,14 @@
  
 <%
 	BoardAllDAO boDAO = new BoardAllDAO();
-	ArrayList<BoardsDTO> notice = boDAO.noticeList("10");
-	ArrayList<BoardsDTO> ask = boDAO.askList("10");
+	ArrayList<BoardsDTO> notice = boDAO.noticeList("10","0");
+	ArrayList<BoardsDTO> ask = boDAO.askList("10","0");
 	
 	TrainerDAO trainerDAO = new TrainerDAO();
 	GymDAO gymDAO = new GymDAO();
 	
-	ArrayList<TrainerDTO> trainer = trainerDAO.TrainerList("10");
-	ArrayList<GymDTO> gym = gymDAO.GymList("10");
+	ArrayList<TrainerDTO> trainer = trainerDAO.TrainerList("10","0");
+	ArrayList<GymDTO> gym = gymDAO.GymList("10","0");
 	
 %>
 <!DOCTYPE html>
@@ -74,7 +74,7 @@
 
                         <div class="miniboard bd2">
                             <div class="board_titel">
-                                <a href="">
+                                <a href="askList.jsp">
                                     <h3>자주묻는 질문</h3>
                                 </a>
                             </div>
@@ -85,7 +85,7 @@
                             </div>
 
 							<% for(BoardsDTO bo2 : ask){ %>
-                            <div class="board text">
+                            <div class="board text" onclick="location.href='askInfo.jsp?no=<%=bo2.getBoards_no() %>'">
                                 <div><%=bo2.getBoards_no()%></div>
                                 <div><%=bo2.getBoards_title() %></div>
                             </div>
@@ -107,7 +107,7 @@
                             </div>
 
                             <% for(TrainerDTO bo3 : trainer){ %>
-                            <div class="board text">
+                            <div class="board text" onclick="location.href='trainerInfo.jsp?no=<%=bo3.getUser_no() %>'">
                                 <div><%=bo3.getUser_no()%></div>
                                 <div><%=bo3.getUser_email()%></div>
                                 <div><%=bo3.getTrainer_title()%></div>
@@ -131,7 +131,7 @@
                             </div>
                             
                              <% for(GymDTO bo4 : gym){ %>
-                            <div class="board text">
+                            <div class="board text" onclick="location.href='gymInfo.jsp?no=<%=bo4.getUser_no() %>'">
                                 <div><%=bo4.getUser_no()%></div>
                                 <div><%=bo4.getUser_email()%></div>
                                 <div><%=bo4.getGym_name()%></div>

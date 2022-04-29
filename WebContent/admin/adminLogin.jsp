@@ -14,23 +14,7 @@
 
     <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../js/default.js"></script>
-    <script type="text/javascript">
-    function loginCheck() {
-        let f = document.getElementById("formtag1");
 
-        if(!f.user_email.value){
-        	alert("아이디를 입력하세요.");
-        	return false;
-        }
-        if(!f.user_pw.value){
-        	alert("비밀번호를 입력하세요.");
-        	return false;
-        }
-
-        $("#formtag1").submit();
-    }
-    	
-    </script>
 </head>
 
 <body>
@@ -41,7 +25,7 @@
             </div>
 
             <div class="fromCell">
-                <form action="adminLoginCheack.jsp" method="post" id="formtag1">
+                <form action="adminLoginCheack.jsp" method="post" id="loginForm">
                     <div>
                         <input type="text" name="user_email" placeholder="아이디(이메일)">
                     </div>

@@ -17,7 +17,9 @@
     <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../js/default.js"></script>
 	
-	<jsp:include page="../js/pagingJs.jsp" flush="true"/>
+	<jsp:include page="../js/pagingJs.jsp" flush="false">
+          <jsp:param name="pageNo" value="2" />
+    </jsp:include>
 	
 </head>
 
@@ -37,12 +39,10 @@
 	                        	<option value="10" selected>10</option>
 	                        	<option value="50">20</option>
 	                        </select>
-	                     <!-- 
-	                     <input type="text" id="outLeng" name="outLeng" value="10">
-	                      -->
        					 <input type="hidden" id="startNum" name="startNum" value="0">
+       					 <input type="hidden" id="startNum" name="startNum" value="0">
+	                      
 	                     </div>
-	
 	                 </div>
 	             </form>
 	         </div>
