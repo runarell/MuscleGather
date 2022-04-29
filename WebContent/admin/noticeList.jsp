@@ -6,7 +6,7 @@
 <% request.setCharacterEncoding("UTF-8"); %>    
  
 <%
-	ArrayList<BoardsDTO> notice = (new BoardAllDAO()).notice_board(0);
+	ArrayList<BoardsDTO> notice = (new BoardAllDAO()).noticeList("0");
 %>
 <!DOCTYPE html>
 <html lang="kr">

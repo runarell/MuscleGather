@@ -5,7 +5,7 @@ import java.io.*;
 public class FileUtil {
 	public static void saveImage(String root, String fname, byte[] data)
 	throws IOException {
-		root += "/images";
+		root += "/upload";
 		
 		File f = new File(root);
 		if(!f.exists()) f.mkdir();

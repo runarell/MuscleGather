@@ -19,6 +19,7 @@ public class UserDTO {
 	public UserDTO() {
 		
 	}
+
 	//loging cheack
 	public UserDTO(String user_no, String user_pw, String user_email, String user_admin) {
 		this.user_no = user_no;
@@ -26,6 +27,14 @@ public class UserDTO {
 		this.user_email = user_email;
 		this.user_admin = user_admin;
 	}
+	
+	// trainer 데이터 
+	public UserDTO(String user_no, String user_name, String user_email) {
+		this.user_no = user_no;
+		this.user_name = user_name;
+		this.user_email = user_email;
+	}
+	
 	//DB - DAO ( 전체 가자오기 )
 	public UserDTO(String user_no, String user_name, String user_pw, String user_birth, String user_zipcode,
 			String user_addr, String user_addrdetail, String user_gender, String user_email, String user_phone,
@@ -65,6 +74,7 @@ public class UserDTO {
 			this.user_auth = user_auth;
 			this.user_status = user_status;
 		}
+	
 	
 	public String getUser_no() {
 		return user_no;

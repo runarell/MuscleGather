@@ -2,7 +2,6 @@ package jdbc;
 
 public class BoardsDTO {
 	private String boards_no;
-	private String user_no;
 	private String boards_title;
 	private String boards_content;
 	private String boards_regdate;
@@ -13,19 +12,8 @@ public class BoardsDTO {
 	}
 	
 	// notice_board  DB - DAO
-	public BoardsDTO(String notice_no, String notice_title, String notice_content,
-			String notice_regdate, String view_cnt) {
+	public BoardsDTO(String notice_no, String notice_title, String notice_content, String notice_regdate, String view_cnt, String notice_images) {
 		this.boards_no 		= notice_no;
-		this.boards_title 	= notice_title;
-		this.boards_content = notice_content;
-		this.boards_regdate = notice_regdate;
-		this.view_cnt 		= view_cnt;
-	}
-	// notice_board  DB - DAO
-	public BoardsDTO(String notice_no, String user_no, String notice_title, String notice_content,
-			String notice_regdate, String view_cnt, String notice_images) {
-		this.boards_no 		= notice_no;
-		this.user_no 		= user_no;
 		this.boards_title 	= notice_title;
 		this.boards_content = notice_content;
 		this.boards_regdate = notice_regdate;
@@ -33,12 +21,17 @@ public class BoardsDTO {
 		this.boards_images 	= notice_images;
 	}
 	// notice_board  DAO - DB
-	public BoardsDTO(String user_no, String notice_title, String notice_content, String notice_images) {
-		this.user_no 		= user_no;
+	public BoardsDTO(String notice_no, String notice_title, String notice_content, String notice_images) {
+		this.boards_no 		= notice_no;
 		this.boards_title 	= notice_title;
 		this.boards_content = notice_content;
 		this.boards_images 	= notice_images;
 	}
+	
+	
+	
+	
+	
 	// ask_board DB - DAO
 	public BoardsDTO(String ask_no, String ask_title, String ask_content) {
 		this.boards_no 		= ask_no;
@@ -59,14 +52,6 @@ public class BoardsDTO {
 
 	public void setBoards_no(String boards_no) {
 		this.boards_no = boards_no;
-	}
-
-	public String getUser_no() {
-		return user_no;
-	}
-
-	public void setUser_no(String user_no) {
-		this.user_no = user_no;
 	}
 
 	public String getBoards_title() {

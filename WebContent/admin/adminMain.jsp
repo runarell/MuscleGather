@@ -7,8 +7,15 @@
  
 <%
 	BoardAllDAO boDAO = new BoardAllDAO();
-	ArrayList<BoardsDTO> notice = boDAO.notice_board(10);
-	ArrayList<BoardsDTO> ask = boDAO.ask_board();
+	ArrayList<BoardsDTO> notice = boDAO.noticeList("10");
+	ArrayList<BoardsDTO> ask = boDAO.askList("10");
+	
+	TrainerDAO trainerDAO = new TrainerDAO();
+	GymDAO gymDAO = new GymDAO();
+	
+	ArrayList<TrainerDTO> trainer = trainerDAO.TrainerList("10");
+	ArrayList<GymDTO> gym = gymDAO.GymList("10");
+	
 %>
 <!DOCTYPE html>
 <html lang="kr">
@@ -43,7 +50,7 @@
 
                         <div class="miniboard bd1">
                             <div class="board_titel">
-                                <a href="">
+                                <a href="noticeList.jsp">
                                     <h3>공지사항</h3>
                                 </a>
                             </div>
@@ -55,7 +62,7 @@
                                 <div>날짜</div>
                             </div>
 							<% for(BoardsDTO bo1 : notice){ %>
-                            <div class="board text" onclick="location.href='#<%=bo1.getBoards_no() %>>'">
+                            <div class="board text" onclick="location.href='noticeInfo.jsp?no=<%=bo1.getBoards_no() %>'">
                                 <div><%=bo1.getBoards_no()%></div>
                                 <div><%=bo1.getBoards_title()%></div>
                                 <div><%=bo1.getView_cnt()%></div>
@@ -93,18 +100,21 @@
                             </div>
 
                             <div class="board titel">
-                                <div>번호</div>
+                                <div>회원번호</div>
+                                <div>아이디</div>
+                                <div>제목</div>
                                 <div>이름</div>
-                                <div>조횟수</div>
-                                <div>날짜</div>
                             </div>
 
+                            <% for(TrainerDTO bo3 : trainer){ %>
                             <div class="board text">
-                                <div>1</div>
-                                <div>장규환</div>
-                                <div>11</div>
-                                <div>2022-04-01</div>
+                                <div><%=bo3.getUser_no()%></div>
+                                <div><%=bo3.getUser_email()%></div>
+                                <div><%=bo3.getTrainer_title()%></div>
+                                <div><%=bo3.getUser_name()%></div>
                             </div>
+							<%}%>
+                            
                         </div>
                         <div class="miniboard bd1">
                             <div class="board_titel">
@@ -119,13 +129,15 @@
                                 <div>조횟수</div>
                                 <div>날짜</div>
                             </div>
-
+                            
+                             <% for(GymDTO bo4 : gym){ %>
                             <div class="board text">
-                                <div>1</div>
-                                <div>근섬유로 줄넘기GMY</div>
-                                <div>22</div>
-                                <div>2022-04-01</div>
+                                <div><%=bo4.getUser_no()%></div>
+                                <div><%=bo4.getUser_email()%></div>
+                                <div><%=bo4.getGym_name()%></div>
+                                <div><%=bo4.getUser_name()%></div>
                             </div>
+							<%}%>
                         </div>
 
 

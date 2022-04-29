@@ -14,6 +14,18 @@ public class GymDTO extends UserDTO{
 		
 	}
 	// DB - DAO
+	public GymDTO(String user_no, String user_name, String user_email,
+			String gym_name) {
+		
+		super(user_no, user_name, user_email);
+		
+		this.gym_name = gym_name;
+	}
+	
+	
+	
+	//====================================================================
+	// DB - DAO
 	public GymDTO(String user_no, String user_name, String user_pw, String user_birth, String user_zipcode,
 			String user_addr, String user_addrderail, String user_gender, String user_email, String user_phone,
 			String user_admin, String user_kakao, String user_auth, String user_status,

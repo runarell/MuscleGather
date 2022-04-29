@@ -1,0 +1,21 @@
+SELECT *
+from user U
+INNER JOIN trainer T 
+ON U.user_no = T.user_no
+order BY U.user_no DESC;
+
+// 트레이너 리스트 
+SELECT U.user_no, U.user_name, U.user_email,
+T.user_no, T.trainer_title
+from user U
+INNER JOIN trainer T 
+ON U.user_no = T.user_no
+order BY U.user_no DESC;
+
+// 헬스장 리스트
+SELECT U.user_no, U.user_name, U.user_email,
+G.user_no, G.gym_name
+from user U
+INNER JOIN gym G
+ON U.user_no = G.user_no
+order BY U.user_no DESC

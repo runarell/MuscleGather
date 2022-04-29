@@ -485,13 +485,6 @@ nav {
 /* ----------------------------------------------------------------------------------- */
 
 /*		스위치 animation css ================================================*/
-/* ani event============================================= */
-
-/* top nav */
-
-/*사이드바 엑션*/
-
-/*		 hover 이벤트 ======================================*/
 
 /*		스위치 css ================================================*/
 
@@ -594,6 +587,28 @@ label[for="sideBtn1"] span {
 .navSideBtn label[for="sideBtn1"].checked span:nth-child(2) {
   transform: rotate(225deg);
 }
+
+/* paging Css*/
+.pagingBox {
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.pagingBox>div {
+    border: 1px solid #f3a950;
+    margin: 0 3px;
+    padding: 2px 4px;
+    cursor: pointer;
+}
+
+.pagingBox>div.on {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+
 
 /*grid control------------------------------------*/
 .grid {

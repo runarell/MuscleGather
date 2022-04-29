@@ -40,7 +40,7 @@ BoardsDTO bo = (new BoardAllDAO() ).notice(no);
     </style>
     
     <script>
-
+		
         function boardBodify() {
             let f = document.getElementById("formtag1");
 
@@ -52,15 +52,13 @@ BoardsDTO bo = (new BoardAllDAO() ).notice(no);
                 alert("공지사항을 입력하세요.");
                 return false;
             }
-
+			
             $("#formtag1").submit();
         }
-        function boardDelet() {
+        function boardDelet(no) {
             if (confirm("정말 삭제하시겠습니까??") == true) {    //확인
                 console.log("삭제");
-
-
-
+            	location.href='noticeDelet.jsp?no='+no;
 
             } else {   //취소
                 console.log("취소");
@@ -93,31 +91,32 @@ BoardsDTO bo = (new BoardAllDAO() ).notice(no);
                             <h1>공지내용</h1>
                         </div>
                         <div>
-                            <label for="" class="btn"> 게시판수정 </label>
-                            <input type="button" class="hidden" onclick="boardBodify()">
+                            <label for="btn1" class="btn" onclick="boardBodify();"> 게시판수정 </label>
+                                <input type=" button" class="hidden" id="btn1">
                             <label for=""> / </label>
-                            <label for="" class="btn"> 게시판삭제 </label>
-                            <input type="button" class="hidden" onclick="boardDelet()">
+                            <label for="btn2" class="btn" onclick="boardDelet(<%=bo.getBoards_no() %>)"> 게시판삭제 </label>
+                            <input type="button" class="hidden" id="btn2">
                         </div>
                     </div>
                     <div class="boardContent">
-                        <div><label for="">번호</label><input type="text" name="notice_no" value="<%=bo.getBoards_no() %>" disabled></div>
+                    	<input type="hidden" name="notice_no" value="<%=bo.getBoards_no() %>">
+                        <div><label for="">번호</label><input type="text" value="<%=bo.getBoards_no() %>" disabled></div>
                         <div><label for="">제목</label><input type="text" name="notice_title" value="<%=bo.getBoards_title()%>"></div>
 
                         <div class="textarea2">
                             <label for="">공지내용</label>
-                            <textarea name="gym_content" name="notice_content"><%=bo.getBoards_content()%></textarea>
+                            <textarea name="notice_content"><%=bo.getBoards_content()%></textarea>
                         </div>
                         <div class="imglist">
                             <div>
                                 <label for="">이미지</label>
-                                <input type="file" name="gym_images">
+                                <input type="file" name="notice_images">
                             </div>
 
                             <div class="imgslid">
                                 <figure>
                                     <span class="del_img" onclick="">X</span>
-                                    <img src="/src/assets/image/img1/rabbit-g374493707_640.jpg" alt="">
+                                    <img src="../upload/<%=bo.getBoards_images() %>" alt="">
                                 </figure>
 
                             </div>

@@ -8,14 +8,6 @@
 <%@ page import = "org.apache.commons.fileupload.disk.*" %>
 <%@ page import = "org.apache.commons.fileupload.servlet.*" %>
 
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <%
 //추출할 전역 변수값 초기화
 request.setCharacterEncoding("utf-8");
@@ -47,11 +39,13 @@ request.setCharacterEncoding("utf-8");
             if (name.equals("notice_images")) {
             	String now = new SimpleDateFormat("yyyyMMddHmsS").format(new Date());  //현재시간
             	file_name = now+item.getName();
+                out.print("<script>console.log('"+file_name+"');</script>");
                 notice_images = item.get();
                 
                 //서버에 사진 저장
                 String root = application.getRealPath(java.io.File.separator);
-               	out.print(" <script>console.log("+root+");</script>");
+                out.print("<script>console.log('"+root+"');</script>");
+                
                 FileUtil.saveImage(root, file_name, notice_images);  
 			}
 		}
@@ -59,7 +53,7 @@ request.setCharacterEncoding("utf-8");
 
     //디비에 게시물 모든 정보 전달
     BoardAllDAO dao = new BoardAllDAO();
-    if ( dao.notice_upload( new BoardDTO(notice_no, notice_title, notice_content, file_name )) ) {
-    	response.sendRedirect("main.jsp");
+    if ( dao.notice_upload( new BoardsDTO(notice_no, notice_title, notice_content, file_name ))) {
+    	out.print("<script>alert('업로드 완료'); location.href='./noticeInfo.jsp?no="+notice_no+"';</script>");
     }
 %>
